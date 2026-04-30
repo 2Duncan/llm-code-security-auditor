@@ -42,3 +42,13 @@ This tool uses a Large Language Model (LLM) to:
 ### Vulnerable Code
 ```php
 $query = "SELECT * FROM users WHERE id = " . $_GET['id'];
+
+
+## 📁 Project Structure
+
+- /examples → Sample vulnerable and fixed code
+- /screenshots → Demo outputs
+- /docs → Technical documentation
+
+
+This tool is actively used in professional WordPress security audits and vulnerability fixing workflows.
