@@ -1,8 +1,15 @@
 <?php
 // Secure version using prepared statements
-$id = $_GET['id'];
-$stmt = $conn->prepare("SELECT * FROM wp_users WHERE id = ?");
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result();
+
+global $wpdb;
+
+$id = absint($_GET['id']);
+
+$query = $wpdb->prepare(
+    "SELECT * FROM {$wpdb->users} WHERE ID = %d",
+    $id
+);
+
+$result = $wpdb->get_results($query);
+
 ?>
