@@ -50,5 +50,45 @@ $query = "SELECT * FROM users WHERE id = " . $_GET['id'];
 - /screenshots → Demo outputs
 - /docs → Technical documentation
 
+## ❌ Before — Vulnerable Code (SQL Injection Risk)
+
+<?php
+// Vulnerable code: direct user input in SQL query
+$id = $_GET['id'];
+
+$query = "SELECT * FROM wp_users WHERE id = $id";
+$result = mysqli_query($conn, $query);
+?>
+
+## 🛠 Step 1 — Secured with Prepared Statements (PHP Level Fix)
+<?php
+// Secure version using prepared statements
+$id = $_GET['id'];
+
+$stmt = $conn->prepare("SELECT * FROM wp_users WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+
+$result = $stmt->get_result();
+?>
+
+## 🚀 Step 2 — WordPress Best Practice Implementation
+
+<?php
+// WordPress standard secure approach
+global $wpdb;
+
+// Sanitize input
+$id = absint($_GET['id']);
+
+// Prepare query safely
+$query = $wpdb->prepare(
+    "SELECT * FROM {$wpdb->users} WHERE ID = %d",
+    $id
+);
+
+// Execute query
+$result = $wpdb->get_results($query);
+?>
 
 This tool is actively used in professional WordPress security audits and vulnerability fixing workflows.
