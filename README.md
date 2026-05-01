@@ -91,4 +91,23 @@ $query = $wpdb->prepare(
 $result = $wpdb->get_results($query);
 ?>
 
+
+## 📸 Security Agent Dashboard
+
+### 🖥 Interface Overview
+![Dashboard](screenshots/dashboard.jpg)
+
+### 🔍 Scan Execution & Results
+![Scan Results](screenshots/scan_results1.jpg)
+![Scan Results](screenshots/scan_results2.jpg)
+
+### ⚙️ What this shows
+
+- Automated scanning of WordPress plugin files  
+- Detection of security vulnerabilities (e.g. SQL Injection)  
+- AI-generated remediation suggestions  
+- Structured audit output for developers  
+
+This interface demonstrates the real-world workflow of the LLM Security Auditor in action.
+
 This tool is actively used in professional WordPress security audits and vulnerability fixing workflows.
