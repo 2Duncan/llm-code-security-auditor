@@ -1,7 +1,22 @@
-# 🔐 LLM Code Security Auditor for WordPress
+# ⚡ CraftyAgent – AI WordPress Security Auditor
 
-An AI-powered security auditing tool that scans, detects, fixes, and verifies vulnerabilities in WordPress plugins and PHP code.
+An AI-powered security agent that scans, detects, fixes, and verifies vulnerabilities in WordPress plugins and PHP code.
+> Designed for real-world WordPress security audits, malware removal, and vulnerability remediation workflows.
 
+> ## 🚀 Key Capabilities
+
+- 🔍 Automated vulnerability detection (OWASP Top 10)
+- 🛠 AI-powered remediation suggestions
+- ✅ Verification of applied fixes
+- 📄 Structured security audit reports
+- 🖥 Interactive security dashboard interface
+  
+- ## 💼 Use Cases
+
+- WordPress plugin security audits  
+- Malware detection & cleanup  
+- Pre-deployment code security checks  
+- Freelance WordPress security services  
 ---
 
 ## 🚨 Problem
