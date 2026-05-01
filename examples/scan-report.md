@@ -1,15 +1,35 @@
-# Security Scan Report
+# 🔐 WordPress Security Audit Report
 
-## File: vulnerable-plugin.php
+## 🧪 Scan Summary
 
-### Issue: SQL Injection
-Severity: Critical
+**Tool:** LLM Code Security Auditor  
+**Scope:** WordPress Plugin Files  
+**Files Scanned:**
+- fixed_plugin.php
+- vulnerable_plugin.php  
 
-### Description:
-User input is directly inserted into SQL query without sanitization.
+---
 
-### Fix:
-Replaced raw query with prepared statement.
+## 📂 File 1: vulnerable_plugin.php
 
-### Status:
-✔ Fixed and Verified
+### 🚨 Issue: SQL Injection  
+**Severity:** Critical  
+**Category:** OWASP A03:2021 – Injection  
+
+### ❌ Problem
+User input from `$_GET['id']` is directly injected into SQL query without sanitization.
+
+### ⚠️ Risk
+- Unauthorized data access  
+- Database manipulation  
+- Full site compromise  
+
+---
+
+### 🛠 Fix Applied
+
+```php
+$stmt = $conn->prepare("SELECT * FROM wp_users WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
